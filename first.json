@@ -1,0 +1,7 @@
+{
+    "name": "ayush",
+    "age": "20",
+    "isAdmin": false,
+    "license": null,
+    "shopItem": ["food", "clothes", "sunflower oil"]
+}

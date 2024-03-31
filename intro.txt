@@ -1,0 +1,52 @@
+node js is a runtime-server environment
+node js is a javascript running on the javascript
+it can conect with databases but javascript cannot connect with the databases
+it uses chrome's v8 engine to execute the code 
+node js is used mostly used for api: fast as compare to others
+written in c++ and js and c
+
+html, css , js are runned on client side and node js is runned on server side 
+client side and server side can communicate through API's
+
+node js provides data to v8 engine and then v8 engine provides that data to chrome which then executes it on screen
+v8 engine is written in c++
+
+What node js developer actually do ?
+1. make apis
+2. connecting server with client
+3. making api for web, android, ios, etc..
+4. making website
+
+
+basically node js takes data from file server or we can say any database and then provide it to server and then server provides that data to web app or mobile app
+
+
+npm= node package manager 
+
+to run on command line
+we can simplay write node -v
+then node 
+then write commands 
+
+undefined means there is no code returned 
+
+to run any node js file on terminal :- node index
+
+both console.log , first run in browser is browser's command and not node js command
+but one which is runned in any command shell is a node's command
+
+
+fundamentals of node js: there is no conditionals or loops and arrays in node js , because these are of js 
+
+
+nodemon :- node js is multi-threaded , can connect with multiple applications
+
+node modules contains all the dependencies which are downloaded like express and we can use these folders whenever i want
+
+
+
+
+
+
+**********JSON notes
+// JSON.parse(myJSON); to convert this into object

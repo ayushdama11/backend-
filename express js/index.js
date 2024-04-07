@@ -27,10 +27,10 @@ app.get("/", (req, res)=>{
 })
 
 // *post means writing in data - create
-app.post("/api/v1/login", (req,res)=>{
-    res.send(`<h1>done Mr. ${req.body.name}</h1> <h2>Your email is ${req.body.email}</h2> <h3>password = ${req.body.password}</h3>`);
-    console.log(req.body);
-})
+// app.post("/api/v1/login", (req,res)=>{
+//     res.send(`<h1>done Mr. ${req.body.name}</h1> <h2>Your email is ${req.body.email}</h2> <h3>password = ${req.body.password}</h3>`);
+//     console.log(req.body);
+// })
 
 app.listen(port, ()=>{
     console.log(`server is working on port: ${port}`);
@@ -39,4 +39,6 @@ app.listen(port, ()=>{
 
 //get post put delete - get=read, post=create, put=update :similar to crud
 
+
+// **** rest(representational state transfer) is an api that defines a set of functions that programmers can use to send requests and receive responses using the http protocol methods such as get and post 
 

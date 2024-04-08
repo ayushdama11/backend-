@@ -1,0 +1,22 @@
+version - 4.18.2
+
+1st part = 4
+2nd part = 18
+3rd part = 2
+
+3rd part - minor fixes - optional update hota hai
+2nd part - recommended bug fix - security fix : karna hi chahiee
+1st part - major release - major / breaking update 
+
+^version - ^4.18.2
+iska matlab we can install the express version from 4.18.2 - 5.0.0 version
+
+means number 4 is locked here it can't be changed 
+
+^ - means install all recommended and minor fixes automatically but major release can't be updated 
+
+if we don't write this ^ [carrot symbol] than we have to install it manually
+
+~ - ~4.18.2
+[squigly line] = in this only minor fixes changes will be updated automatically but can't update recommend and major part 
+

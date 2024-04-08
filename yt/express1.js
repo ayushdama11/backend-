@@ -6,7 +6,23 @@ const products= data.products;
 const express= require("express");
 const server=express();
 
+//middleware - server.use()
+//this is a type of logger middleware, server pe jo b request jaati hai uska log bana skte haii
+server.use((req,res,next)=>{
+    console.log(req.get('User-Agent'),req.method,new Date(), req.ip, req.hostname)   //GET ::1 localhost -- ::1 is shortform of localhost
+    next(); //batata hai ki aap aage ja sakte ho
+})
+
+// middleware name auth
+const auth=(req,res,next)=>{
+    console.log(req.method)   //GET ::1 localhost -- ::1 is shortform of localhost
+    next(); //batata hai ki aap aage ja sakte ho
+}
+
+
+
 //*creating api's - returning json
+//API -Endpoint - Route
 server.get('/', (req,res)=>{
     res.json({type: 'GET'})
 })

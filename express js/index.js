@@ -3,7 +3,7 @@ const path= require("path");
 const bodyParser= require("body-parser");
 const router=require("./userRoutes");
 //body parser is used to extract data from the req.body so that it can be displayed using the res 
-// *** "name" of field jo hota hai wo hame likhna hota hai res.body.name, ....
+// *** "name" of field in index.html jo hota hai wo hame likhna hota hai res.body.name, ....
 
 const app= express();
 const port= 4000;

@@ -27,7 +27,7 @@ server.use(morgan('default'));
 // ** built in middlewares - 
 //bodyParser - iske bina body kaam nai karegii
 server.use(express.json()); //now it can read json which is there in the body in the postman 
-// server.use(express.urlencoded()); //used mainly in form where there are url's
+// server.use(express.urlencoded()); //used mainly in form where there are many url's
 
 // server.static built in middleware
 //iska matlab public naam ke folder me mene ek file banaya hai waha se koi bhi file uthaoo aur host kardo
@@ -42,25 +42,32 @@ const auth=(req,res,next)=>{
     // console.log(req.query)   
 
     // if(req.query.password=='123'){
-    if(req.body.password=='123'){
-        next()
-    }else{
-        res.sendStatus(401);
-    }
-    // next(); //batata hai ki aap aage ja sakte ho
-}
+    // if(req.body.password=='123'){
+    //     next()
+    // }else{
+    //     res.sendStatus(401);
+    // }
+    next(); //batata hai ki aap aage ja sakte ho
+};
 // server.use(auth);
+
+// :id means id is variable - localhost:8080/product/5 
+server.get('/product/:id',auth,(req,res)=>{
+    console.log(req.params);
+    res.json({type: 'GET'});
+})
 
 
 //*creating api's - returning json
 //CRUD - POST, GET, PUT, DELETE
 //API -Endpoint - Route
-//get is used to read something 
-server.get('/',auth,(req,res)=>{
-    res.json({type: 'GET'})
-})
+//get is used to read something
+
+// server.get('/',auth,(req,res)=>{
+//     res.json({type: 'GET'})
+// })
 // post is used to post or we can say give some response
-server.post('/',auth,(req,res)=>{
+server.post('/',(req,res)=>{
     res.json({type: 'POST'})
 })
 // put is used to replace something or we can say that it is used to update something

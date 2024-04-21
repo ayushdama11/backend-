@@ -2,15 +2,24 @@ const express= require("express");
 const morgan= require("morgan");
 const server=express();
 const mongoose= require('mongoose');
-// const productController= require('./controller/product'); // for functions
+const {Schema}= mongoose;
 
-mongoose.connect()
 
 // **making router
 // const productRouter= express.Router();
 const productRouter= require('./routes/product')
 const userRouter= require('./routes/user')
 
+//**mongoose */
+main().catch(err => console.log(err));
+//here we have used async function because it will return a promise
+async function main(){
+    //.connect is a mongoose function to connect to a mongodb server
+    await mongoose.connect('mongodb://127.0.0.1:27017/ecommerce');
+    console.log("database connected");
+}
+
+//see in model folder the use of schema
 
 
 //middlewares - 
@@ -22,6 +31,7 @@ server.use(express.static('public'));
 //server.use('/api', productRouter.router);
 server.use('/products', productRouter.router);
 server.use('/user', userRouter.router);
+
 
 
 

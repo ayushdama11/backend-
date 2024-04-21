@@ -340,7 +340,7 @@ db.products.updateOne({'id':1},{$set:{'price':999}})
 
 db.products.updateMany({'id':{$gt:3}},{$set:{'price':999}})
 
-//replaceOne= ye krne ke bad sirf price:999 hi hoga id1 me baki sbb delete ho jaega
+//replaceOne= ye krne ke bad sirf price:999 hi hoga id1 me baki sbb delete ho jaega, replaceMany nai hota
 
 db.products.replaceOne({'id':3},{'price':999})
 
@@ -358,4 +358,4 @@ create organisation
 
 create project
 
-create
+

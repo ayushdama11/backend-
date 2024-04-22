@@ -1,4 +1,5 @@
 const mongoose= require('mongoose');
+//importing files
 const User= require("./user")
 
 //to connect to mongodb
@@ -30,10 +31,14 @@ async function run() {
         // console.log(user);
 
         //finding better code
-        const user= await User.where("name").equals("Kyle").where("age").gt("12").limit(2).select("age");
-        user[0].bestFriend= "6625132510e3175dfc72c033"
-        await user[0].save()
+        // const user= await User.where("name").equals("Kyle").where("age").gt("12").limit(2).select("age");
+        // user[0].bestFriend= "6625132510e3175dfc72c033"
+        // await user[0].save()
+
+        //methods
+        const user= await User.findByName("Kyle");
         console.log(user);
+        user.sayHi();
     }catch(e){
         console.error(e.message);
     }

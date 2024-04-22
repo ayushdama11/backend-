@@ -11,9 +11,12 @@ const model= require('../model/product');
 const Product= model.Product;
 
 
-
 exports.createProduct = (req,res)=>{
-    const product= new Product();
+    const product= new Product(); //making a new instance
+    product.title= 'iphoneX';
+    product.price=999;
+    product.ratings= 5;
+    product.save();
     res.status(201).json(req.body);
 }
 

@@ -7,7 +7,7 @@ const {Schema}= mongoose;
 
 // **making router
 // const productRouter= express.Router();
-const productRouter= require('./routes/product')
+const productRouter= require('./routes/mongoseproduct')
 const userRouter= require('./routes/user')
 
 //**mongoose */

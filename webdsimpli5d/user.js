@@ -15,6 +15,7 @@ const userSchema= new mongoose.Schema({
         //** custom validator */
         validate: {
             validator: v => v % 2 === 0,
+            // if not div by 2 than it will print these props message
             message: props => `${props.value} is not an even number`,
         },
     },

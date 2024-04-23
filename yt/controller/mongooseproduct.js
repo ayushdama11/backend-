@@ -2,6 +2,7 @@
 
 
 const fs= require("fs");
+const mongoose= require("mongoose");
 // const index= fs.readFileSync('index.html', 'utf-8');
 // const data=JSON.parse(fs.readFileSync('data.json','utf-8'));
 // const products= data.products;
@@ -11,46 +12,74 @@ const model= require('../model/product');
 const Product= model.Product;
 
 
-exports.createProduct = (req,res)=>{
-    const product= new Product(); //making a new instance
-    product.title= 'iphoneX';
-    product.price=999;
-    product.ratings= 5;
-    product.save();
-    res.status(201).json(req.body);
+exports.createProduct = async(req,res)=>{
+    try{
+        //making a new instance
+        // const product= new Product({
+        //     title: 'iphoneX',
+        //     price: 999,
+        //     rating: 5
+        // });
+
+        //from req.body 
+        const product= new Product(req.body);
+
+        const saveProduct= await product.save();
+        console.log(saveProduct);
+        res.status(201).json(saveProduct);
+    } catch(err){
+        console.error(err);
+        res.status(500).json({error: 'Internal server error'});
+    }
 }
 
-exports.getAllProducts=  (req,res)=>{
+exports.getAllProducts= async(req,res)=>{
+    const products= await Product.find()
+    // const products= await Product.find({price:{$gt:500}});
     res.json(products);
 }
 
-exports.getProduct= (req, res)=>{
-    const id= +req.params.id;      
-    const product= products.find(p=>p.id===id);
+exports.getProduct= async(req, res)=>{
+    //here want id in strings only 
+    const id= req.params.id;      
+    const product = await Product.findById(id);
     res.json(product);
 }
 
 //put function
-exports.replaceProduct=(req, res)=>{
-    const id= +req.params.id;       
-    const productIndex= products.findIndex(p=>p.id===id);
-    products.splice(productIndex, 1, {...req.body, id:id})
-    res.status(201).json();
+exports.replaceProduct= async(req, res)=>{
+    const id = req.params.id;
+    try{
+        //here we use findOneAndUpdate
+        const doc= await Product.findOneAndReplace({_id:id},req.body,{new:true})
+        res.status(201).json(doc);
+    } catch(err){
+        console.log(err);
+        res.status(400).json(err);
+    }
 }
 
 //patch function
-exports.updateProduct= (req,res)=>{
-    const id = +req.params.id;
-    const productIndex= products.findIndex(p=>p.id===id);
-    const product= products[productIndex];  //   iss se jo hamara purana id aur jo cheeze thi wo padi rahe islie hamne ye line likhi hai 
-    products.splice(productIndex, 1,{...product,...req.body});
-    res.status(201).json();
+exports.updateProduct= async(req,res)=>{
+    const id = req.params.id;
+    try{
+        //here we use findOneAndUpdate
+        const doc= await Product.findOneAndUpdate({_id:id},req.body,{new:true})
+        res.status(201).json(doc);
+    } catch(err){
+        console.log(err);
+        res.status(400).json(err);
+    }
 }
 
-exports.deleteProduct= (req,res)=>{
-    const id= +req.params.id;
-    const productIndex= products.findIndex(p=>p.id===id);
-    const product= products[productIndex];
-    products.splice(productIndex, 1);
-    res.status(201).json(product);
+exports.deleteProduct= async(req,res)=>{
+    const id = req.params.id;
+    try{
+        //here we use findOneAndUpdate
+        const doc= await Product.findOneAndDelete({_id:id})
+        res.status(201).json(doc);
+    } catch(err){
+        console.log(err);
+        res.status(400).json(err);
+    }
 }

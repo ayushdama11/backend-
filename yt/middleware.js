@@ -66,6 +66,7 @@ server.get('/product/:id',auth,(req,res)=>{
 // server.get('/',auth,(req,res)=>{
 //     res.json({type: 'GET'})
 // })
+
 // post is used to post or we can say give some response
 server.post('/',(req,res)=>{
     res.json({type: 'POST'})

@@ -74,7 +74,7 @@ server.put('/products/:id', (req, res)=>{
     const productIndex= products.findIndex(p=>p.id===id);
     //.splice method is used for updation in an array
     // productIndex = index jaha update karna hai - extracted from url , 1 ka matlab kitne products ko remove karna hai - yaha 1 matlab hame jo product Index pe jo hai sirf usiko remove karna hai, 
-    //...req.body ka matlab hame saari properties jo bhi mere req.body me hai use use karna hai 
+    //...req.body ka matlab hame saari properties jo bhi mere req.body me hai use add karna hai 
     // id to bas hame ek extra property add karni hai to ek property hamne daldi jiska naam id rakha and usko id ki value assign kardii
     products.splice(productIndex, 1, {...req.body, id:id})
     res.status(201).json();

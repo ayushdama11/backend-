@@ -26,6 +26,7 @@ const server= http.createServer((req,res)=>{
             res.end(data);
         })
     }
+    
     else{
         res.writeHead(404, {"Content-type":"text/html"}); //error404 can be seen in page source - network
         res.end("<h1>404 error page. Page does not exist</h1>");

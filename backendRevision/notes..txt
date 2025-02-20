@@ -1,0 +1,18 @@
+public folder we have made to add css to thr file 
+
+frontend pe index.css file link karannii hai
+
+
+
+// mongodb
+- npm i mongoose
+- models folder banaoo
+- create config folder to connect with database 
+
+- 2 steps
+1. frontend se user ki data collect krna hai 
+2. us data ko server p mangake data ko db m store karana hai
+
+
+
+// CRUD = create , read , update, delete 
